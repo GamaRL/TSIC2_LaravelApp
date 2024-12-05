@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/findPaciente.js": "/js/findPaciente.js",
+    "/js/findPacienteRiesgo.js": "/js/findPacienteRiesgo.js",
+    "/js/nuevoPaciente.js": "/js/nuevoPaciente.js",
+    "/js/pacienteOnly.js": "/js/pacienteOnly.js",
+    "/js/statistics.js": "/js/statistics.js",
+    "/js/statisticsGeneral.js": "/js/statisticsGeneral.js"
+}
