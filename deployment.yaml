@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-deployment
+  namespace: tsic02
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: laravel
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - name: laravel
+        image: gamarl01/sistema-captura
+        ports:
+        - containerPort: 80
+        env:
+        - name: APP_ENV
+          value: production
+        - name: APP_KEY
+          value: base64:anVf8qYGcWfZ4/lA8zMypM/xRhrxxAlooJe/QLrnx6I=
+        - name: DB_HOST
+          value: mariadb-service
+        - name: DB_DATABASE
+          value: laravel
+        - name: DB_USERNAME
+          value: root
+        - name: DB_PASSWORD
+          value: rootpassword
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: laravel
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
